@@ -12,8 +12,8 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Kode Alternatif</th>
-                            <th>Nama Alternatif</th>
+                            <th>Kode Masyarakat</th>
+                            <th>Nama Masyarakat</th>
                             <th>Action</th>
                         </tr>
                     </thead>

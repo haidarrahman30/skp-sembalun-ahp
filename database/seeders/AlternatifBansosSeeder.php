@@ -32,6 +32,18 @@ class AlternatifBansosSeeder extends Seeder
                 'alternatif_id' => '3',
                 'created_at' => now(),
                 'updated_at' => now(),
+            ],
+            [
+                'jenis_bansos_id' => '1',
+                'alternatif_id' => '4',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'jenis_bansos_id' => '1',
+                'alternatif_id' => '5',
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         ]);
     }

@@ -2,42 +2,42 @@
 @section('title', 'Hasil')
 @section('content')
 @php
-    $list = DB::select("SELECT rangking.*,alternatif.nama_alternatif From rangking join alternatif on alternatif.id = rangking.alternatif_id where jenis_bansos_id='$jenis_bansos_id' order by nilai_prioritas DESC");
-    foreach ($list as $row) {
-        $labels[] = $row->nama_alternatif;
-		$nilai_prioritas[] = $row->nilai_prioritas;
-    }
+$list = DB::select("SELECT rangking.*,alternatif.nama_alternatif From rangking join alternatif on alternatif.id = rangking.alternatif_id where jenis_bansos_id='$jenis_bansos_id' order by nilai_prioritas DESC");
+foreach ($list as $row) {
+$labels[] = $row->nama_alternatif;
+$nilai_prioritas[] = $row->nilai_prioritas;
+}
 @endphp
 
 @if ($list)
-<div class="row" >
+<div class="row">
     <div class="col-sm-6" id="content2">
         <div class="card card-table">
             <div class="card-body booking_card">
                 <div class="card-body">
                     <div>
                         @php
-                            $data = DB::table('jenis_bansos')->where('id', $jenis_bansos_id)->first();
-                            $nama_jenis_bansos =  $data->nama_jenis_bansos;
+                        $data = DB::table('jenis_bansos')->where('id', $jenis_bansos_id)->first();
+                        $nama_jenis_bansos = $data->nama_jenis_bansos;
                         @endphp
 
-                        <h5>Rangking Alternatif Bansos {{ $nama_jenis_bansos }}</h5>
+                        <h5>Rangking Masyarakat Calon Penerima Bansos {{ $nama_jenis_bansos }}</h5>
 
                         <table class="table table-bordered" id="" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Rangking</th>
-                                    <th>Nama Alternatif</th>
+                                    <th>Nama Masyarakat Calon Penerima Bansos</th>
                                     <th>Nilai Prioritas</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($list as $row )
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $row->nama_alternatif }}</td>
-                                        <td>{{ $row->nilai_prioritas }}</td>
-                                    </tr>
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $row->nama_alternatif }}</td>
+                                    <td>{{ $row->nilai_prioritas }}</td>
+                                </tr>
                                 @endforeach
 
                             </tbody>
@@ -70,15 +70,15 @@
     const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-        labels: <?= json_encode($labels); ?>,
-        datasets: [{
-            label: 'Grafik Rangking',
-            data: <?= json_encode($nilai_prioritas); ?>,
-            fill: true,
-            backgroundColor: getRandomColor,
-            borderWidth: 1
-        }]
-    },
+            labels: <?= json_encode($labels); ?>,
+            datasets: [{
+                label: 'Grafik Rangking',
+                data: <?= json_encode($nilai_prioritas); ?>,
+                fill: true,
+                backgroundColor: getRandomColor,
+                borderWidth: 1
+            }]
+        },
         options: {
             scales: {
                 y: {
@@ -89,19 +89,19 @@
     });
 
     function getRandomColor() {
-            var letters = '0123456789ABCDEF'.split('');
-            var color = '#';
-            for (var i = 0; i < 6; i++ ) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
         }
-    </script>
+        return color;
+    }
+</script>
 
 <script type="text/javascript">
-    $('#downloadPDF').click(function () {
+    $('#downloadPDF').click(function() {
         domtoimage.toPng(document.getElementById('content2'))
-            .then(function (blob) {
+            .then(function(blob) {
                 var pdf = new jsPDF('l', 'mm', [$('#content2').width(), $('#content2').height()]);
 
                 pdf.addImage(blob, 'PNG', 0, 0, $('#content2').width(), $('#content2').height());
@@ -110,8 +110,7 @@
                 that.options.api.optionsChanged();
             });
     });
-
-    </script>
+</script>
 
 @endpush
 
@@ -123,5 +122,3 @@
 </div>
 @endsection
 @endif
-
-

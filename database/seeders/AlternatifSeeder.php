@@ -17,19 +17,31 @@ class AlternatifSeeder extends Seeder
         DB::table('alternatif')->insert([
             [
                 'kode_alternatif' => 'A001',
-                'nama_alternatif' => 'Ramdan',
+                'nama_alternatif' => 'IRIANI',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'kode_alternatif' => 'A002',
-                'nama_alternatif' => 'Anisa',
+                'nama_alternatif' => 'NURAENI',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'kode_alternatif' => 'A003',
-                'nama_alternatif' => 'Kira',
+                'nama_alternatif' => 'AGUSWANDI',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kode_alternatif' => 'A004',
+                'nama_alternatif' => 'SAMAAH',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kode_alternatif' => 'A005',
+                'nama_alternatif' => 'SAIRAH',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]

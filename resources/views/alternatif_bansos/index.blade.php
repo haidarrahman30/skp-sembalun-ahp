@@ -13,7 +13,7 @@
                         <tr>
                             <th>No</th>
                             <th>Jenis Bansos</th>
-                            <th>Nama Alternatif</th>
+                            <th>Nama Masyarakat Penerima Bansos</th>
                             <th>Action</th>
                         </tr>
                     </thead>
